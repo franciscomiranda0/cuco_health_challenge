@@ -17,7 +17,7 @@ class UserRepository implements UserRepositoryInterface {
 
   @override
   Future<User> getUser() async {
-    final personResponse = PersonResponse.fromMap(
+    final personResponse = PeopleResponse.fromMap(
       await _httpClient.get(_userEndpoint),
     );
 
@@ -26,7 +26,7 @@ class UserRepository implements UserRepositoryInterface {
 
   @override
   Future<List<Friend>> getFriends() async {
-    final personResponse = PersonResponse.fromMap(
+    final personResponse = PeopleResponse.fromMap(
       await _httpClient.get(
         _userEndpoint,
         queryParameters: {'results': 15},

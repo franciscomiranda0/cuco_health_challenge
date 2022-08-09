@@ -1,11 +1,11 @@
 import 'package:cuco_health_challenge/app/data/models/person/person.dart';
 
-class PersonResponse {
+class PeopleResponse {
   final List<Person> _people;
 
-  const PersonResponse._(this._people);
+  const PeopleResponse._(this._people);
 
-  factory PersonResponse.fromMap(Map<String, dynamic> map) {
+  factory PeopleResponse.fromMap(Map<String, dynamic> map) {
     final people = (map['results'] as List)
         .map((result) => Person(
               firstName: result['name']['first'],
@@ -15,7 +15,7 @@ class PersonResponse {
             ))
         .toList();
 
-    return PersonResponse._(people);
+    return PeopleResponse._(people);
   }
 
   List<Person> get people => List.unmodifiable(_people);
