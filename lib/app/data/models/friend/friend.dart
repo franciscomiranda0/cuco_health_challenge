@@ -5,17 +5,10 @@ class Friend {
   final String lastName;
   final String avatarUrl;
 
-  const Friend._({
-    required this.firstName,
-    required this.lastName,
-    required this.avatarUrl,
-  });
-
-  factory Friend.fromPerson(Person person) => Friend._(
-        firstName: person.firstName,
-        lastName: person.lastName,
-        avatarUrl: person.avatarUrl,
-      );
+  Friend.fromPerson(Person person)
+      : firstName = person.firstName,
+        lastName = person.lastName,
+        avatarUrl = person.avatarUrl;
 
   String get fullName => '$firstName $lastName';
 }

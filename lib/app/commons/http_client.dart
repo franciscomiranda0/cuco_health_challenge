@@ -34,7 +34,8 @@ class HttpClient implements HttpClientInterface {
     if (rawResponse.statusCode == 200) {
       response = jsonDecode(rawResponse.body);
     } else {
-      throw Exception('Could not complete request properly.');
+      throw Exception('''Could not complete request properly. 
+          Code: ${rawResponse.statusCode}.''');
     }
 
     return response;

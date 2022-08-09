@@ -6,19 +6,11 @@ class User {
   final String avatarUrl;
   final String email;
 
-  const User._({
-    required this.firstName,
-    required this.lastName,
-    required this.avatarUrl,
-    required this.email,
-  });
-
-  factory User.fromPerson(Person person) => User._(
-        firstName: person.firstName,
-        lastName: person.lastName,
-        avatarUrl: person.avatarUrl,
-        email: person.email,
-      );
+  User.fromPerson(Person person)
+      : firstName = person.firstName,
+        lastName = person.lastName,
+        avatarUrl = person.avatarUrl,
+        email = person.email;
 
   String get fullName => '$firstName $lastName';
 }
