@@ -13,7 +13,7 @@ abstract class HttpClientInterface {
 class HttpClient implements HttpClientInterface {
   const HttpClient._();
 
-  factory HttpClient() =>  const HttpClient._();
+  factory HttpClient() => const HttpClient._();
 
   /// Do not start [endpoint]s with slash as its already provided.
   @override
@@ -34,7 +34,7 @@ class HttpClient implements HttpClientInterface {
     if (rawResponse.statusCode == 200) {
       response = jsonDecode(rawResponse.body);
     } else {
-      throw Exception('The request could not be completed.');
+      throw Exception('Could not complete request properly.');
     }
 
     return response;
