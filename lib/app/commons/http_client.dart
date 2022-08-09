@@ -2,8 +2,6 @@ import 'dart:convert' show jsonDecode;
 
 import 'package:http/http.dart' as http show get;
 
-late final HttpClient? _httpClient;
-
 abstract class HttpClientInterface {
   Future<Map<String, dynamic>> get(
     String endpoint, {
@@ -14,7 +12,7 @@ abstract class HttpClientInterface {
 class HttpClient implements HttpClientInterface {
   const HttpClient._();
 
-  factory HttpClient() => _httpClient ??= const HttpClient._();
+  factory HttpClient() =>  const HttpClient._();
 
   /// Do not start [endpoint]s with slash as its already provided.
   @override
@@ -31,9 +29,6 @@ class HttpClient implements HttpClientInterface {
         path: endpoint,
         queryParameters: queryParameters,
       ),
-      headers: {
-        'Content-Type': 'application/json',
-      },
     );
 
     if (rawResponse.statusCode == 200) {
