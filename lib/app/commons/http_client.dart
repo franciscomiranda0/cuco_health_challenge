@@ -1,5 +1,6 @@
 import 'dart:convert' show jsonDecode;
 
+import 'package:cuco_health_challenge/app/commons/environment_variables.dart';
 import 'package:http/http.dart' as http show get;
 
 abstract class HttpClientInterface {
@@ -21,11 +22,10 @@ class HttpClient implements HttpClientInterface {
     Map<String, dynamic>? queryParameters,
   }) async {
     final Map<String, dynamic> response;
-    //Todo: set hardcoded host to env baseUrl.
     final rawResponse = await http.get(
       Uri(
-        scheme: 'https',
-        host: 'randomuser.me',
+        scheme: EnvironmentVariables.scheme,
+        host: EnvironmentVariables.host,
         path: endpoint,
         queryParameters: queryParameters,
       ),
