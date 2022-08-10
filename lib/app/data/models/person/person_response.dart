@@ -10,7 +10,7 @@ class PeopleResponse {
         .map((result) => Person(
               firstName: result['name']['first'],
               lastName: result['name']['last'],
-              avatarUrl: result['picture']['thumbnail'],
+              avatarUrl: result['picture']['large'],
               email: result['email'],
             ))
         .toList();

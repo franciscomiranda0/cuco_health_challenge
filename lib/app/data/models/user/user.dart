@@ -1,4 +1,5 @@
 import 'package:cuco_health_challenge/app/data/models/person/person.dart';
+import 'package:flutter/material.dart';
 
 class User {
   final String firstName;
@@ -13,4 +14,6 @@ class User {
         email = person.email;
 
   String get fullName => '$firstName $lastName';
+  String get fullNameInitials =>
+      '${firstName.characters.first}${lastName.characters.first}'.toUpperCase();
 }
