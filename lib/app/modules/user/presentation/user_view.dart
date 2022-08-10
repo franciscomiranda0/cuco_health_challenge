@@ -3,7 +3,13 @@ part of 'user_page.dart';
 class _UserView extends StatelessWidget {
   const _UserView({Key? key}) : super(key: key);
 
-  void _navigateToFriendsPage(BuildContext context) {}
+  void _navigateToFriendsPage(BuildContext context) {
+    Navigator.of(context).push(
+      Platform.isAndroid
+          ? MaterialPageRoute(builder: (_) => const FriendsPage())
+          : CupertinoPageRoute(builder: (_) => const FriendsPage()),
+    );
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -45,7 +51,7 @@ class _UserView extends StatelessWidget {
             ),
           ),
         ),
-        body: BlocBuilder<UserPageViewModel, UserPageViewModelState>(
+        body: BlocBuilder<UserPageViewModel, UserPageState>(
           builder: (_, state) {
             if (state is UserLoadInProgress) {
               return const Center(child: CircularProgressIndicator());

@@ -4,9 +4,9 @@ import 'package:cuco_health_challenge/app/data/repositories/user_repository.dart
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
-part 'user_page_viewmodel_state.dart';
+part 'user_page_state.dart';
 
-class UserPageViewModel extends Cubit<UserPageViewModelState> {
+class UserPageViewModel extends Cubit<UserPageState> {
   final UserRepositoryInterface _userRepository;
 
   UserPageViewModel(this._userRepository) : super(const UserInitial());

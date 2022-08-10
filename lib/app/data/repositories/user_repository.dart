@@ -9,7 +9,7 @@ abstract class UserRepositoryInterface {
 }
 
 class UserRepository implements UserRepositoryInterface {
-  static const _userEndpoint = 'api';
+  static const _userEndpoint = 'api/';
   final HttpClientInterface _httpClient;
 
   const UserRepository({required HttpClientInterface httpClient})
@@ -26,12 +26,10 @@ class UserRepository implements UserRepositoryInterface {
 
   @override
   Future<List<Friend>> getFriends() async {
-    final personResponse = PeopleResponse.fromMap(
-      await _httpClient.get(
-        _userEndpoint,
-        queryParameters: {'results': 15},
-      ),
-    );
+    final personResponse = PeopleResponse.fromMap(await _httpClient.get(
+      _userEndpoint,
+      queryParameters: {'results': '15'},
+    ));
 
     return personResponse.people
         .map((person) => Friend.fromPerson(person))
