@@ -1,6 +1,7 @@
 import 'dart:convert' show jsonDecode;
 
 import 'package:cuco_health_challenge/app/commons/environment_variables.dart';
+import 'package:cuco_health_challenge/app/commons/exceptions.dart';
 import 'package:http/http.dart' as http show get;
 
 abstract class HttpClientInterface {
@@ -34,8 +35,10 @@ class HttpClient implements HttpClientInterface {
     if (rawResponse.statusCode == 200) {
       response = jsonDecode(rawResponse.body);
     } else {
-      throw Exception('''Could not complete request properly. 
-          Code: ${rawResponse.statusCode}.''');
+      throw RequestException(
+        rawResponse.statusCode,
+        'Houve um erro na requisição.',
+      );
     }
 
     return response;
