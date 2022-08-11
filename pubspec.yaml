@@ -7,10 +7,11 @@ environment:
   sdk: ">=2.17.6 <3.0.0"
 
 dependencies:
+  cupertino_icons: ^1.0.2
   flutter:
     sdk: flutter
-  cupertino_icons: ^1.0.2
   flutter_bloc: 8.0.1
+  flutter_native_splash: ^2.2.7
   flutter_dotenv: 5.0.2
   http: 0.13.5
 
@@ -25,6 +26,12 @@ flutter:
 
   uses-material-design: true
 
+flutter_native_splash:
+  color: "#FFC000"
+  image: assets/splash/user_300x300.png
+  android_12:
+    color: "#FFC000"
+    image: assets/splash/user_300x300.png
 
 
 
