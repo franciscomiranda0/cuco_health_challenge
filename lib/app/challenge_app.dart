@@ -1,4 +1,5 @@
 import 'package:cuco_health_challenge/app/commons/http_client.dart';
+import 'package:cuco_health_challenge/app/commons/widgets/snackbar.dart';
 import 'package:cuco_health_challenge/app/data/repositories/user_repository.dart';
 import 'package:cuco_health_challenge/app/modules/user/presentation/user_page.dart';
 import 'package:flutter/material.dart';
@@ -11,8 +12,9 @@ class ChallengeApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return RepositoryProvider<UserRepositoryInterface>(
       create: (_) => UserRepository(httpClient: HttpClient()),
-      child: const MaterialApp(
-        home: UserPage(),
+      child: MaterialApp(
+        scaffoldMessengerKey: scaffoldMessengerKey,
+        home: const UserPage(),
       ),
     );
   }
