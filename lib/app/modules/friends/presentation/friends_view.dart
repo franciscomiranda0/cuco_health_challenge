@@ -22,7 +22,7 @@ class _FriendsView extends StatelessWidget {
           child: SingleChildScrollView(
             physics: const BouncingScrollPhysics(),
             child: Column(
-              crossAxisAlignment: CrossAxisAlignment.stretch,
+              crossAxisAlignment: CrossAxisAlignment.start,
               children: [
                 if (Platform.isIOS) ...[
                   const VerticalSpacer(16),

@@ -8,7 +8,6 @@ part 'friends_page_state.dart';
 
 class FriendsPageViewModel extends Cubit<FriendsPageState> {
   final UserRepositoryInterface _userRepository;
-
   final List<Friend> _friends;
 
   FriendsPageViewModel(this._userRepository)
@@ -16,8 +15,8 @@ class FriendsPageViewModel extends Cubit<FriendsPageState> {
         super(const FriendsInitial());
 
   Future<void> getFriends() async {
+    if (_friends.isNotEmpty) return;
     emit(const FriendsLoadInProgress());
-    if (_friends.isNotEmpty) _wipeFriends();
     try {
       final friends = await _userRepository.getFriends();
       _friends.addAll(friends);
@@ -28,8 +27,6 @@ class FriendsPageViewModel extends Cubit<FriendsPageState> {
       emit(const FriendsLoadError('Ops, erro inesperado.'));
     }
   }
-
-  void _wipeFriends() => _friends.removeRange(0, _friends.length - 1);
 
   List<Friend> get friends => List.unmodifiable(_friends);
 }
