@@ -40,7 +40,7 @@ class _UserView extends StatelessWidget {
                   Icons.people_outline,
                   size: 32,
                 ),
-                SizedBox(width: 8),
+                HorizontalSpacer(8),
                 Text(
                   'Amigos',
                   style: TextStyle(
@@ -54,7 +54,9 @@ class _UserView extends StatelessWidget {
         body: BlocBuilder<UserPageViewModel, UserPageState>(
           builder: (_, state) {
             if (state is UserLoadInProgress) {
-              return const Center(child: CircularProgressIndicator());
+              return const Center(
+                child: CircularProgressIndicator(color: Colors.amber),
+              );
             } else if (state is UserLoadSuccess) {
               return SingleChildScrollView(
                 child: Column(
@@ -64,43 +66,45 @@ class _UserView extends StatelessWidget {
                       height: 200,
                       child: LayoutBuilder(
                         builder: (_, constraints) {
-                          return Stack(alignment: Alignment.center, children: [
-                            Positioned(
-                              top: -100,
-                              child: Container(
-                                color: Colors.black12,
-                                height: 200,
-                                width: constraints.maxWidth,
+                          return Stack(
+                            alignment: Alignment.center,
+                            children: [
+                              Positioned(
+                                top: -100,
+                                child: Container(
+                                  color: Colors.black12,
+                                  height: 200,
+                                  width: constraints.maxWidth,
+                                ),
                               ),
-                            ),
-                            const Divider(
-                              color: Colors.amber,
-                              thickness: 2,
-                            ),
-                            CircleAvatar(
-                              backgroundColor: Colors.amber,
-                              backgroundImage: NetworkImage(
-                                state.user.avatarUrl,
+                              const Divider(
+                                color: Colors.amber,
+                                thickness: 2,
                               ),
-                              radius: 64,
-                            ),
-                          ]);
+                              Avatar(
+                                url: viewModel.user.avatarUrl,
+                                fallbackInitials:
+                                    viewModel.user.fullNameInitials,
+                                radius: 64,
+                              )
+                            ],
+                          );
                         },
                       ),
                     ),
-                    const SizedBox(height: 16),
+                    const VerticalSpacer(16),
                     Padding(
                       padding: const EdgeInsets.symmetric(horizontal: 16),
                       child: Column(
                         children: [
                           _UserDetail(
                             icon: Icons.person_outlined,
-                            content: state.user.fullName,
+                            content: viewModel.user.fullName,
                           ),
-                          const SizedBox(height: 8),
+                          const VerticalSpacer(8),
                           _UserDetail(
                             icon: Icons.email_outlined,
-                            content: state.user.email,
+                            content: viewModel.user.email,
                           ),
                         ],
                       ),

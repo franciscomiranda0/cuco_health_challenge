@@ -14,9 +14,7 @@ class UserLoadInProgress extends UserPageState {
 }
 
 class UserLoadSuccess extends UserPageState {
-  final User user;
-
-  const UserLoadSuccess(this.user);
+  const UserLoadSuccess();
 }
 
 class UserLoadError extends UserPageState {

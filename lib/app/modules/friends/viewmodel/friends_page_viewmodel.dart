@@ -25,7 +25,7 @@ class FriendsPageViewModel extends Cubit<FriendsPageState> {
     } on RequestException catch (exception) {
       emit(FriendsLoadError(exception.toString()));
     } catch (_) {
-      emit(const FriendsLoadError('Ops, algo deu errado. Tente novamente.'));
+      emit(const FriendsLoadError('Ops, erro inesperado.'));
     }
   }
 
