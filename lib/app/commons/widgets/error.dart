@@ -1,3 +1,5 @@
+import 'package:cuco_health_challenge/app/commons/assets.dart';
+import 'package:cuco_health_challenge/app/commons/widgets/vertical_spacer.dart';
 import 'package:flutter/material.dart';
 
 class VisualizationError extends StatelessWidget {
@@ -5,8 +7,15 @@ class VisualizationError extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return const Center(
-      child: Text('Erro!'),
+    return Center(
+      child: Column(
+        mainAxisAlignment: MainAxisAlignment.center,
+        children: [
+          Image.asset(Assets.fallbackError, scale: 12),
+          const VerticalSpacer(16),
+          const Text('Algo não ocorreu como o esperado.')
+        ],
+      ),
     );
   }
 }

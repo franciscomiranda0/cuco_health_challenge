@@ -12,6 +12,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
 part 'user_view.dart';
+part 'widgets/friends_button.dart';
 part 'widgets/user_detail.dart';
 
 class UserPage extends StatelessWidget {
