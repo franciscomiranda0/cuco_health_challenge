@@ -2,15 +2,10 @@
 
 A showcase app for Cuco Health interview, displaying user related info.
 
-## Getting Started
+## Running
 
-This project is a starting point for a Flutter application.
+Developed wih Flutter 3.0.5, which requires dart 2.17 or higher.
+Though it may run in lower versions, the app was tested using Android 10 (Q) - API 29; also 
+preferably run on iOS 14 or higher.
 
-A few resources to get you started if this is your first Flutter project:
-
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
-
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+Cheers :)
