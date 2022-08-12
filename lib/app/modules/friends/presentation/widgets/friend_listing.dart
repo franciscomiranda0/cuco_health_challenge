@@ -25,8 +25,6 @@ class _FriendListing extends StatelessWidget {
               );
             },
           );
-        } else if (state is FriendsLoadError) {
-          return const VisualizationError();
         }
         return const SizedBox.shrink();
       },

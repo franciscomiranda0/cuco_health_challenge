@@ -1,9 +1,8 @@
 import 'dart:io';
 
+import 'package:cuco_health_challenge/app/commons/modal.dart';
 import 'package:cuco_health_challenge/app/commons/widgets/avatar.dart';
-import 'package:cuco_health_challenge/app/commons/widgets/error.dart';
 import 'package:cuco_health_challenge/app/commons/widgets/horizontal_spacer.dart';
-import 'package:cuco_health_challenge/app/commons/widgets/snackbar.dart' as own;
 import 'package:cuco_health_challenge/app/commons/widgets/vertical_spacer.dart';
 import 'package:cuco_health_challenge/app/data/models/friend/friend.dart';
 import 'package:cuco_health_challenge/app/data/repositories/user_repository.dart';
@@ -25,11 +24,8 @@ class FriendsPage extends StatelessWidget {
           FriendsPageViewModel(context.read<UserRepositoryInterface>()),
       child: BlocListener<FriendsPageViewModel, FriendsPageState>(
         listenWhen: (_, current) => current is FriendsLoadError,
-        listener: (_, state) => ScaffoldMessenger.of(context).showSnackBar(
-          own.SnackBar.warning(
-            text: (state as FriendsLoadError).message,
-          ),
-        ),
+        listener: (context, state) =>
+            Modal.show(context, (state as FriendsLoadError).message),
         child: const _FriendsView(),
       ),
     );

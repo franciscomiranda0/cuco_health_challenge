@@ -3,6 +3,18 @@ part of 'user_page.dart';
 class _UserView extends StatelessWidget {
   const _UserView({Key? key}) : super(key: key);
 
+  void _showDialog(BuildContext context, {required String text}) {
+    showDialog(
+      context: context,
+      builder: (_) {
+        return AlertDialog(
+          title: const Text('Erro!'),
+          content: Text(text),
+        );
+      },
+    );
+  }
+
   @override
   Widget build(BuildContext context) {
     final viewModel = context.read<UserPageViewModel>();
