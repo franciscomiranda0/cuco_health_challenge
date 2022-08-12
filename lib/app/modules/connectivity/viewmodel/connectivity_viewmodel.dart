@@ -31,7 +31,7 @@ class ConnectivityCubit extends Cubit<ConnectivityState> {
     }
   }
 
-  bool get _hasNoConnection => _connectivityStatus == ConnectivityResult.none;
+  bool get _hasNoConnection => !_hasConnection;
   bool get _hasConnection =>
       _connectivityStatus == ConnectivityResult.mobile ||
       _connectivityStatus == ConnectivityResult.wifi;
