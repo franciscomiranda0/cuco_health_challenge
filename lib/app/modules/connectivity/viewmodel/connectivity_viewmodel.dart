@@ -35,4 +35,10 @@ class ConnectivityCubit extends Cubit<ConnectivityState> {
   bool get _hasConnection =>
       _connectivityStatus == ConnectivityResult.mobile ||
       _connectivityStatus == ConnectivityResult.wifi;
+
+  @override
+  Future<void> close() {
+    _subscription.cancel();
+    return super.close();
+  }
 }
